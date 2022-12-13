@@ -1,0 +1,38 @@
+import java.util.*;
+public class Main 
+{
+    public static void main(String args[]) 
+    {
+        Scanner a=new Scanner(System.in);
+        int t=a.nextInt();
+        while(t!=0)
+        {
+            t--;
+            int n=a.nextInt();
+            int arr[]=new int[n];
+            for(int i=0;i<n;i++)
+            {
+                arr[i]=a.nextInt();
+            }
+            String p=findMaxNum(arr);
+            System.out.println(p);
+        }
+    }
+    public static String  findMaxNum(int arr[])
+    {
+        String a[]=new String[arr.length];
+        for(int i=0;i<arr.length;i++)
+        {
+            a[i]=Integer.toString(arr[i]);
+        }
+        Arrays.sort(a,(a1,b1) -> (b1+a1).compareTo(a1+b1));
+        StringBuilder res=new StringBuilder();
+        if(a[0].equals("0"))
+            return "0";
+        for(int i=0;i<a.length;i++)
+        {
+            res.append(a[i]);
+        }
+        return res.toString();
+    }
+}
