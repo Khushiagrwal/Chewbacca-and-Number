@@ -1,0 +1,57 @@
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner a=new Scanner(System.in);
+        int n=a.nextInt();
+        String s=a.next();
+        int count=0;
+        boolean arr[]=new boolean[n];
+        for(int i=1;i<=s.length();i++)
+        {
+            for(int j=i;j<=s.length();j++)
+            {
+                int len=j-i;
+                long num=Long.parseLong(s.substring(len,j));
+                if(is_cb(num))
+                {
+                  if(is_visit(arr,len,j)) 
+                  {
+                    count++;
+                    for(int k=len;k<j;k++)
+                        arr[k]=true;
+                  } 
+                }
+            }
+        }
+        System.out.println(count);
+    }  
+    public static boolean is_cb(long no)
+    {
+        int arr[]={2,3,5,7,11,13,17,19,23,29};
+        if(no==0 || no==1)
+            return false;
+        for (int i = 0; i < arr.length; i++) {
+            if (no == arr[i]) 
+            {
+                return true;
+            }
+        }
+        for(int i=0;i<arr.length;i++)
+        {
+            if(no%arr[i]==0)
+                return false;
+        }
+            return true;
+    }  
+    public static boolean is_visit(boolean s[],int i,int j) 
+    {
+        for(int k=i;k<j;k++)
+        {
+            if(s[k]==true)
+                return false;
+        }   
+        return true;
+    }
+}
