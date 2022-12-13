@@ -1,0 +1,27 @@
+import java.util.*;
+public class Main {
+    public static void main(String args[]) {
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        int dup=n;
+        int count=0;
+        while(dup>0){
+            dup=dup/10;
+            count++;
+        }
+        int[]k=new int[count+1];
+        int[]k1=new int[count+1];        
+        for(int i=1;i<=count;i++){
+            k[i]=n%10;
+            n=n/10;
+        }
+        for(int i=1;i<=count;i++){
+            int p=k[i];
+            k1[p]=i;
+        }
+        for(int i=count;i>=1;i--){
+            System.out.print(k1[i]);
+        }
+
+    }
+}
