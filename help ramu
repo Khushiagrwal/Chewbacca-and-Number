@@ -1,0 +1,39 @@
+import java.util.*;
+public class Main {
+    public static void main(String args[])
+    {
+        Scanner a=new Scanner(System.in);
+        int t=a.nextInt();
+        while(t!=0)
+        {
+            int c1,c2,c3,c4;
+            c1=a.nextInt();                  
+            c2=a.nextInt();
+            c3=a.nextInt();
+            c4=a.nextInt();
+            int  n ,m;
+            n=a.nextInt();
+            m=a.nextInt();
+            int r[]=new int[n];
+            int c[]=new int [m];
+            for(int i=0;i<n;i++)
+                r[i]=a.nextInt();
+            for(int i=0;i<m;i++)
+                c[i]=a.nextInt();
+            int ans1=0,ans2=0;
+            for(int i=0;i<n;i++)
+            {
+                ans1+=Math.min(r[i]*c1,c2);    
+            }
+            ans1=Math.min(ans1,c3);
+            for(int i=0;i<m;i++)
+            {
+                ans2+=Math.min(c[i]*c1,c2);    
+            }
+            ans2=Math.min(ans2,c3);
+            System.out.println(Math.min(ans1+ans2,c4));
+            t--;
+        }
+
+    }
+}
