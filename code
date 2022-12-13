@@ -1,0 +1,26 @@
+import java.util.*;
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        long n = sc.nextLong();
+        long sum,m;
+        sum=0l;
+        m=1l;
+        long r;
+        while(n!=0l){
+            r=n%10l;
+            if(9l-r<r){
+                sum = sum + (9l-r)*m;
+                if(n/10l==0l && r==9l){
+                    sum =sum+r*m;
+                    break;
+                }
+            }
+            else
+            sum = sum + r*m;
+            m=m*10l;
+            n=n/10l;
+        }
+        System.out.println(sum);
+    }
+}
