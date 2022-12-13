@@ -1,0 +1,33 @@
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+     {
+        Scanner Sc=new Scanner(System.in);
+        int tc=Sc.nextInt();
+        while(tc-->0)
+        {
+            int n=Sc.nextInt();
+            int[] arr=new int[n];
+            for(int i=0;i<=n-1;++i)
+            arr[i]=Sc.nextInt();
+            long t=0,ct=0;
+            int fi=n-1,tm=0,si=0,ssi=0;
+            for(int i=0;i<n;i++)
+            {
+                ct=0; 
+                for(int j=i;;j++)
+                {
+                    ct+=arr[j%n];
+                    if(ct>t)
+                        t=ct;
+                    if(ct<0)
+                        ct=0;
+                    if(j%n==i-1||j%n==i-1+n)
+                        break;
+                }
+            }
+            System.out.println(t);
+        }
+    }
+}
